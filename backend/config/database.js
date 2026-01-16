@@ -9,11 +9,19 @@ const pool = mysql.createPool({
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0,
-  ssl: {
-    rejectUnauthorized: false
-  }
+  ssl: process.env.DB_HOST && process.env.DB_HOST.includes('tidbcloud') ? {
+    minVersion: 'TLSv1.2',
+    rejectUnauthorized: true
+  } : false,
+  enableKeepAlive: true,
+  keepAliveInitialDelay: 0
 });
 
 const promisePool = pool.promise();
+
+// Test connection
+promisePool.query('SELECT 1')
+  .then(() => console.log('Database connected successfully'))
+  .catch(err => console.error('Database connection failed:', err.message));
 
 module.exports = promisePool;
