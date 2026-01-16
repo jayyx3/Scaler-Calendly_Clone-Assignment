@@ -36,7 +36,8 @@ function Availability() {
       fetchAvailability();
       resetForm();
     } catch (error) {
-      alert('Error saving availability');
+      console.error('Error saving availability:', error);
+      alert(error.response?.data?.error || error.message || 'Error saving availability');
     }
   };
 
