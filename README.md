@@ -10,7 +10,7 @@ A full-stack scheduling and booking web application that replicates Calendly's c
 ## 🚀 Live Demo
 
 - **Frontend:** [Link to your deployed frontend]
-- **Backend:** https://scaler-calendly-clone-assignment.vercel.app/
+- **Backend:** https://scaler-calendly-clone-backend-akp3x45f9-jay-joshis-projects.vercel.app
 
 ## 📋 Table of Contents
 
