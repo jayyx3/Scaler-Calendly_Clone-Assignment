@@ -6,6 +6,7 @@ const getAllAvailability = async (req, res) => {
     const [rows] = await db.query('SELECT * FROM availability ORDER BY FIELD(day_of_week, "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday")');
     res.json(rows);
   } catch (error) {
+    console.error('Database error in getAllAvailability:', error);
     res.status(500).json({ error: error.message });
   }
 };
